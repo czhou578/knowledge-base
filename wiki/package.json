@@ -1,0 +1,22 @@
+{
+  "name": "knowledge-base-wiki",
+  "version": "1.0.0",
+  "description": "A dynamic wiki of markdown files",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/generate-index.js",
+    "prebuild": "node scripts/generate-index.js",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "dompurify": "^3.0.0",
+    "highlight.js": "^11.9.0",
+    "marked": "^12.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

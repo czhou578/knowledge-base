@@ -1,0 +1,156 @@
+/* Modern CSS Reset & Vars */
+:root {
+  --bg-color: #0f172a;
+  --bg-color-secondary: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-hover: #0284c7;
+  --border-color: #334155;
+  --sidebar-width: 300px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* App Layout */
+#app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar with glassmorphism */
+#sidebar {
+  width: var(--sidebar-width);
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border-color);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+  background: -webkit-linear-gradient(45deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#nav-list li a {
+  text-decoration: none;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: block;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.95rem;
+}
+
+#nav-list li a:hover, #nav-list li a.active {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* Content Area */
+#content-area {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 3rem 4rem;
+  max-width: 1000px;
+}
+
+/* Markdown Styles */
+.markdown-body {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.markdown-body h1 { font-size: 2.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+.markdown-body h2 { font-size: 1.75rem; }
+.markdown-body p { margin-bottom: 1rem; color: #cbd5e1; }
+.markdown-body a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+.markdown-body a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+.markdown-body code {
+  background-color: var(--bg-color-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: inherit;
+  color: #e2e8f0;
+}
+
+.markdown-body pre {
+  background-color: #1e1e1e !important;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin: 1rem 0;
+  background: rgba(30, 41, 59, 0.5);
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  color: #cbd5e1;
+}
+
+/* Loader */
+.loader {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
