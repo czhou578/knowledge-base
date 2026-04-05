@@ -3,7 +3,7 @@ title: "Music information retrieval libraries for real-time analysis"
 source: "https://claude.ai/chat/73ad6dc8-269c-43ff-b9e9-d4d1786472fc"
 author:
 published:
-created: 2026-04-02
+created: 2026-04-04
 description: "Claude conversation with 12 messages"
 tags:
   - "clippings"
@@ -474,3 +474,14 @@ print(f"RMS level: {20 * np.log10(rms + 1e-10):.1f} dB")
 ```
 
 Once `test.wav` sounds clean and the RMS reading is sensible, your ingestion layer is done and you can move on to wiring in pYIN for pitch detection.
+
+---
+
+## References
+
+Links cited by Claude in the research process for this conversation:
+
+- [CREPE: A Convolutional Representation for Pitch Estimation (arXiv paper)](https://arxiv.org/pdf/1802.06182) — Original CREPE architecture paper. 360-bin pitch output, 20-cent intervals, C1–B7 range.
+- [CREPE on ar5iv (rendered HTML)](https://ar5iv.labs.arxiv.org/html/1802.06182) — HTML rendering of the arXiv paper, notes on upper-register violin performance degradation.
+- [Violin Etudes Dataset & CREPE Fine-Tuning — ISMIR 2022 Poster](https://ismir2022program.ismir.net/poster_247.html) — Key finding: fine-tuning CREPE on Violin Etudes outperforms pre-trained CREPE out of the box. Also covers equal-temperament overfitting bias.
+- [Constrained Harmonic Resynthesis for F0 Estimation — ISMIR 2022 Full Paper](https://archives.ismir.net/ismir2022/paper/000062.pdf) — Details on the Viterbi jump constraint problem (2.4 semitones for CREPE, 2.5 for pYIN) and the Constrained Harmonic Resynthesis labeling method used in Violin Etudes.

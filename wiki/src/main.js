@@ -17,7 +17,7 @@ async function init() {
     // Setup Navigation
     pages.forEach(page => {
       // Create safe ID from filename
-      const id = page.replace('.md', '').replace(/\s+/g, '-').toLowerCase();
+      const id = page.replace('.md', '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase();
       pagesMap.set(id, page);
       
       const li = document.createElement('li');
@@ -73,7 +73,19 @@ async function fetchAndRenderMarkdown(filename) {
   
   try {
     const res = await fetch(`/raw/${filename}`);
-    if (!res.ok) throw new Error('File not found');
+    if (!res.ok) {
+      // Remove any pages that are not found from the sidebar
+      let failedHash = "";
+      for (let [k, v] of pagesMap.entries()) {
+        if (v === filename)failedHash = k;
+      }
+      if (failedHash) {
+        pagesMap.delete(failedHash);
+        const linkToRemove = navList.querySelector(`a[href="#${failedHash}"]`);
+        if (linkToRemove && linkToRemove.parentElement) linkToRemove.parentElement.remove();
+      }
+      throw new Error('File not found');
+    }
     const markdown = await res.text();
     
     // Parse markdown to HTML
@@ -103,11 +115,42 @@ async function fetchAndRenderMarkdown(filename) {
       const language = hljs.getLanguage(lang) ? lang : 'plaintext';
       
       const highlighted = hljs.highlight(codeEl.textContent, { language }).value;
-      codeEl.innerHTML = highlighted;
+
+      // Wrap each line in a .line span for line-number display via CSS counters
+      const lines = highlighted.split('\n');
+      // Remove trailing empty line if present
+      if (lines[lines.length - 1] === '') lines.pop();
+      codeEl.innerHTML = lines.map(l => `<span class="line">${l}</span>`).join('\n');
+
       codeEl.classList.add('hljs', `language-${language}`);
       
       if (codeEl.parentElement.tagName === 'PRE') {
-        codeEl.parentElement.classList.add('hljs');
+        codeEl.parentElement.classList.add('hljs', 'line-numbers');
+      }
+    });
+
+    // 2.5 Make all text links clickable
+    const walker = document.createTreeWalker(tempDiv, NodeFilter.SHOW_TEXT, null, false);
+    const textNodes = [];
+    let textNode;
+    while((textNode = walker.nextNode())) {
+      if (textNode.parentElement && textNode.parentElement.tagName !== 'A' && textNode.parentElement.tagName !== 'CODE' && textNode.parentElement.tagName !== 'PRE') {
+        textNodes.push(textNode);
+      }
+    }
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    textNodes.forEach(node => {
+      if (urlRegex.test(node.nodeValue)) {
+        const span = document.createElement('span');
+        span.innerHTML = node.nodeValue.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
+        node.replaceWith(...span.childNodes);
+      }
+    });
+    
+    // Ensure existing links are clickable and external links open in a new tab
+    tempDiv.querySelectorAll('a').forEach(aEl => {
+      if (aEl.getAttribute('href') && aEl.getAttribute('href').startsWith('http')) {
+        aEl.setAttribute('target', '_blank');
       }
     });
 
@@ -119,8 +162,8 @@ async function fetchAndRenderMarkdown(filename) {
       codeEl.parentElement.replaceWith(div);
     });
     
-    // Sanitize the properly manipulated HTML structure
-    const cleanHtml = DOMPurify.sanitize(tempDiv.innerHTML);
+    // Sanitize the properly manipulated HTML structure (allowing target attribute for clickable external links)
+    const cleanHtml = DOMPurify.sanitize(tempDiv.innerHTML, { ADD_ATTR: ['target'] });
     
     contentDiv.innerHTML = cleanHtml;
     contentDiv.style.animation = 'fadeIn 0.4s ease-out forwards';

@@ -52,6 +52,7 @@ body {
   color: var(--text-main);
   background: -webkit-linear-gradient(45deg, #38bdf8, #818cf8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -153,4 +154,41 @@ body {
 .loader {
   font-size: 1.2rem;
   color: var(--text-muted);
+}
+
+/* Line-numbered code blocks */
+.markdown-body pre.line-numbers {
+  padding-left: 0;
+  counter-reset: line;
+  position: relative;
+}
+
+.markdown-body pre.line-numbers code {
+  display: block;
+}
+
+.markdown-body pre.line-numbers .line {
+  display: block;
+  padding: 0 1rem 0 4rem;
+  line-height: 1.6;
+  position: relative;
+  counter-increment: line;
+}
+
+.markdown-body pre.line-numbers .line::before {
+  content: counter(line);
+  position: absolute;
+  left: 0;
+  width: 3rem;
+  text-align: right;
+  padding-right: 0.75rem;
+  color: #4b5563;
+  border-right: 1px solid #2d3748;
+  user-select: none;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+.markdown-body pre.line-numbers .line:hover {
+  background: rgba(56, 189, 248, 0.05);
 }
