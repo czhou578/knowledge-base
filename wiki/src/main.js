@@ -13,7 +13,21 @@ async function init() {
     // Fetch the list of available pages from generated index
     const res = await fetch('/pages.json');
     const pages = await res.json();
-    
+
+    // Add pinned Index link at top of sidebar
+    const indexLi = document.createElement('li');
+    indexLi.className = 'nav-index-item';
+    const indexA = document.createElement('a');
+    indexA.href = '#index';
+    indexA.textContent = '📋 Wiki Index';
+    indexLi.appendChild(indexA);
+    navList.appendChild(indexLi);
+
+    // Add divider
+    const divider = document.createElement('li');
+    divider.className = 'nav-divider';
+    navList.appendChild(divider);
+
     // Setup Navigation
     pages.forEach(page => {
       // Create safe ID from filename
@@ -28,7 +42,10 @@ async function init() {
       navList.appendChild(li);
     });
 
-    // Handle initial routing
+    // Handle initial routing — default to index
+    if (!window.location.hash) {
+      history.replaceState(null, null, '#index');
+    }
     handleRoute();
 
     // Listen for hash changes
@@ -41,13 +58,10 @@ async function init() {
 
 async function handleRoute() {
   let hash = window.location.hash.substring(1);
-  
-  if (!hash && pagesMap.size > 0) {
-    // Show the first page by default as requested
-    const firstKey = Array.from(pagesMap.keys())[0];
-    hash = firstKey;
-    // Without altering browser history unnecessarily
-    history.replaceState(null, null, `#${hash}`);
+
+  if (!hash) {
+    hash = 'index';
+    history.replaceState(null, null, '#index');
   }
 
   // Update active state in sidebar
@@ -58,11 +72,98 @@ async function handleRoute() {
     }
   });
 
+  if (hash === 'index') {
+    await renderIndexPage();
+    return;
+  }
+
   const filename = pagesMap.get(hash);
   if (filename) {
     await fetchAndRenderMarkdown(filename);
   } else if (hash) {
     contentDiv.innerHTML = `<h1>Page Not Found</h1><p>The requested page <code>${hash}</code> could not be found.</p>`;
+  }
+}
+
+async function renderIndexPage() {
+  contentDiv.style.animation = 'none';
+  contentDiv.offsetHeight;
+  contentDiv.innerHTML = '<div class="loader">Loading index...</div>';
+
+  try {
+    const res = await fetch('/wiki-index.json');
+    const index = await res.json();
+
+    // Group by category
+    const categories = {};
+    index.forEach(entry => {
+      if (!categories[entry.category]) categories[entry.category] = [];
+      categories[entry.category].push(entry);
+    });
+
+    const totalPages = index.length;
+    const totalLinks = index.reduce((sum, e) => sum + e.linkCount, 0);
+
+    let html = `
+      <div class="wiki-index-header">
+        <h1>Wiki Index</h1>
+        <p class="wiki-index-meta">${totalPages} articles &nbsp;·&nbsp; ${totalLinks} external links</p>
+      </div>
+    `;
+
+    const categoryOrder = [
+      'Project Planning', 'Architecture', 'Libraries — MIR General',
+      'Libraries — Audio Analysis', 'Libraries — Pitch Estimation',
+      'Research & Conversations', 'References', 'Other'
+    ];
+
+    const orderedCats = [
+      ...categoryOrder.filter(c => categories[c]),
+      ...Object.keys(categories).filter(c => !categoryOrder.includes(c))
+    ];
+
+    for (const cat of orderedCats) {
+      const entries = categories[cat];
+      html += `<div class="index-category">`;
+      html += `<h2 class="index-category-title">${cat} <span class="index-count">${entries.length}</span></h2>`;
+      html += `<div class="index-cards">`;
+
+      for (const entry of entries) {
+        const id = entry.filename.replace('.md', '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase();
+        const desc = entry.description && entry.description.length > 6
+          ? entry.description.slice(0, 120) + (entry.description.length > 120 ? '…' : '')
+          : 'No description.';
+        const linkBadge = entry.linkCount > 0 ? `<span class="index-badge">${entry.linkCount} links</span>` : '';
+        const dateBadge = entry.created ? `<span class="index-badge index-badge-date">${entry.created}</span>` : '';
+        const sourceDomain = entry.source ? new URL(entry.source).hostname.replace('www.', '') : '';
+        const sourceBadge = sourceDomain ? `<span class="index-badge index-badge-source">${sourceDomain}</span>` : '';
+
+        html += `
+          <a class="index-card" href="#${id}">
+            <div class="index-card-title">${entry.title.replace('.md', '')}</div>
+            <div class="index-card-desc">${desc}</div>
+            <div class="index-card-meta">${dateBadge}${sourceBadge}${linkBadge}</div>
+          </a>
+        `;
+      }
+
+      html += `</div></div>`;
+    }
+
+    contentDiv.innerHTML = DOMPurify.sanitize(html);
+    contentDiv.style.animation = 'fadeIn 0.4s ease-out forwards';
+
+    // Wire up card clicks (DOMPurify strips event attrs, use event delegation)
+    contentDiv.querySelectorAll('.index-card').forEach(card => {
+      card.addEventListener('click', e => {
+        e.preventDefault();
+        const href = card.getAttribute('href');
+        window.location.hash = href;
+      });
+    });
+  } catch (err) {
+    contentDiv.innerHTML = `<h1>Index Unavailable</h1><p>Could not load wiki-index.json. Run the dev server to regenerate it.</p>`;
+    console.error('Index render error:', err);
   }
 }
 
