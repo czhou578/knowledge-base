@@ -1,0 +1,3 @@
+Log.md is chronological. It's an append-only record of what happened and when — ingests, queries, lint passes. 
+
+A useful tip: if each entry starts with a consistent prefix (e.g. ## [2026-04-02] ingest | Article Title), the log becomes parseable with simple unix tools — grep "^## \[" log.md | tail -5 gives you the last 5 entries. The log gives you a timeline of the wiki's evolution and helps you understand what's been done recently.
