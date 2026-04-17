@@ -1,2 +1,0 @@
-
-Index.md is content-oriented. It's a catalog of everything in the wiki — each page listed with a link, a one-line summary, and optionally metadata like date or source count. Organized by category (entities, concepts, sources, etc.). You should update it on every ingest. When answering a query, you should read the index first to find relevant pages, then drill into them.

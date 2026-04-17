@@ -7,86 +7,106 @@
     "created": "",
     "category": "Architecture",
     "linkCount": 0,
-    "wordCount": 324
+    "wordCount": 328
   },
   {
     "filename": "Essentia Python tutorial — Essentia 2.1-beta6-dev documentation.md",
     "title": "Essentia Python tutorial — Essentia 2.1-beta6-dev documentation",
-    "description": "Open-source library and tools for audio and music analysis, description and synthesis",
-    "source": "https://essentia.upf.edu/essentia_python_tutorial.html",
-    "created": "2026-04-02",
+    "description": "",
+    "source": "",
+    "created": "",
     "category": "Libraries — Audio Analysis",
     "linkCount": 48,
-    "wordCount": 3728
+    "wordCount": 3740
   },
   {
     "filename": "essentia_src_examples_python_example_tonal_key_by_steps_streaming.py at master.md",
-    "title": "essentia/src/examples/python/example_tonal_key_by_steps_streaming.py at master",
-    "description": "C++ library for audio and music analysis, description and synthesis, including Python bindings - essentia/src/examples/python/example_tonal_key_by_steps_streaming.py at master · MTG/essentia",
-    "source": "https://github.com/MTG/essentia/blob/master/src/examples/python/example_tonal_key_by_steps_streaming.py",
-    "created": "2026-04-02",
+    "title": "essentia_src_examples_python_example_tonal_key_by_steps_streaming.py at master",
+    "description": "",
+    "source": "",
+    "created": "",
     "category": "Libraries — Audio Analysis",
-    "linkCount": 2,
-    "wordCount": 163
+    "linkCount": 1,
+    "wordCount": 165
   },
   {
     "filename": "librosa_librosa_ Python library for audio and music analysis.md",
-    "title": "librosa/librosa: Python library for audio and music analysis",
-    "description": "Python library for audio and music analysis. Contribute to librosa/librosa development by creating an account on GitHub.",
-    "source": "https://github.com/librosa/librosa",
-    "created": "2026-04-02",
+    "title": "librosa_librosa_ Python library for audio and music analysis",
+    "description": "",
+    "source": "",
+    "created": "",
     "category": "Libraries — Audio Analysis",
     "linkCount": 12,
-    "wordCount": 640
+    "wordCount": 620
   },
   {
     "filename": "2026 Python MIR Libraries for Real-Time Music Analysis.md",
     "title": "2026 Python MIR Libraries for Real-Time Music Analysis",
-    "description": "Grok is an AI assistant built by xAI. Chat, create images, write code, and get real-time answers from the web and X.",
-    "source": "https://grok.com/c/d6810b68-5ee5-4665-959a-686d3801ac1b?rid=ad87f142-2547-40f5-a775-946028696e58",
-    "created": "2026-04-02",
+    "description": "",
+    "source": "",
+    "created": "",
     "category": "Libraries — MIR General",
     "linkCount": 1,
-    "wordCount": 862
+    "wordCount": 872
+  },
+  {
+    "filename": "Artificial intelligence enables recognizing and assessing a violinist’s bow movements.md",
+    "title": "Artificial intelligence enables recognizing and assessing a violinist’s bow movements",
+    "description": "A system developed by David Dalmazzo and Rafael Ramírez, members of the Music Technology Group, allows violin students to benefit from real-time accurate inform",
+    "source": "https://www.frontiersin.org/news/2019/07/29/psychology-violin-artificial-intelligence-learning",
+    "created": "2026-04-15",
+    "category": "Other",
+    "linkCount": 10,
+    "wordCount": 495
   },
   {
     "filename": "claude-gemini-pipeline.md",
-    "title": "Building an AI music coaching consultant",
-    "description": "Claude conversation with 4 messages",
-    "source": "https://claude.ai/chat/dbd8569c-fdc9-4143-96f5-1c9158b24eb4",
-    "created": "2026-04-04",
+    "title": "claude-gemini-pipeline",
+    "description": "",
+    "source": "",
+    "created": "",
     "category": "Other",
     "linkCount": 1,
-    "wordCount": 1621
+    "wordCount": 1539
   },
   {
     "filename": "Building an AI music coaching consultant.md",
     "title": "Building an AI music coaching consultant",
-    "description": "Claude conversation with 2 messages",
-    "source": "https://claude.ai/chat/dbd8569c-fdc9-4143-96f5-1c9158b24eb4",
-    "created": "2026-04-02",
+    "description": "",
+    "source": "",
+    "created": "",
     "category": "Project Planning",
     "linkCount": 1,
-    "wordCount": 1168
+    "wordCount": 1081
+  },
+  {
+    "filename": "Ideal Pipeline — Violin Coaching Agent.md",
+    "title": "Ideal Pipeline — Violin Coaching Agent",
+    "description": "",
+    "source": "",
+    "created": "",
+    "category": "Project Planning",
+    "linkCount": 6,
+    "wordCount": 1396
   },
   {
     "filename": "Bibliography — MIR Research References.md",
     "title": "Bibliography — MIR Research References",
-    "description": "Complete bibliography of all URLs referenced by Claude across the Music Information Retrieval conversation (73ad6dc8). 97 sources covering MIR libraries, violin-specific analysis, pitch estimation, beat tracking, and transfer learning.",
+    "description": "",
     "source": "",
-    "created": "2026-04-04",
+    "created": "",
     "category": "References",
     "linkCount": 102,
-    "wordCount": 879
+    "wordCount": 798
   },
   {
     "filename": "Music information retrieval libraries for real-time analysis.md",
     "title": "Music information retrieval libraries for real-time analysis",
-    "description": "Claude conversation with 12 messages",
-    "source": "https://claude.ai/chat/73ad6dc8-269c-43ff-b9e9-d4d1786472fc",
-    "created": "2026-04-04",
+    "description": "",
+    "source": "",
+    "created": "",
     "category": "Research & Conversations",
     "linkCount": 11,
-    "wordCount": 2872
+    "wordCount": 2866
   }
 ]
