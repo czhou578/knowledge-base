@@ -1,13 +1,6 @@
----
-title: "2026 Python MIR Libraries for Real-Time Music Analysis"
-source: "https://grok.com/c/d6810b68-5ee5-4665-959a-686d3801ac1b?rid=ad87f142-2547-40f5-a775-946028696e58"
-author:
-published:
-created: 2026-04-02
-description: "Grok is an AI assistant built by xAI. Chat, create images, write code, and get real-time answers from the web and X."
-tags:
-  - "clippings"
----
+# 2026 Python MIR Libraries for Real-Time Music Analysis
+
+[grok.com](https://grok.com/c/d6810b68-5ee5-4665-959a-686d3801ac1b?rid=ad87f142-2547-40f5-a775-946028696e58) · Created 2026-04-02
 i want to build a layer for an agentic application that serves as a music consultant: taking in played notes in its ingestion layer. Standard LLMs cannot "hear" pitch or rhythm errors accurately. Your engineer must use dedicated MIR (Music Information Retrieval) libraries for the diagnostic layer. What python libraries are the most popular for real-time rhythm and onset detection, and extracting musical features like timbre and harmonics as of 2026?
 
 **As of 2026, the most popular and actively maintained Python libraries for Music Information Retrieval (MIR) in this exact use case—real-time rhythm/onset detection plus extraction of musical features like timbre (e.g., MFCCs, spectral centroid/flux/contrast) and harmonics (e.g., chroma, harmonic-percussive separation)—are Librosa, Aubio, Madmom, and Essentia.**

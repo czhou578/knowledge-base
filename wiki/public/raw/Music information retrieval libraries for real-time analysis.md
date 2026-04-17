@@ -1,13 +1,8 @@
----
-title: "Music information retrieval libraries for real-time analysis"
-source: "https://claude.ai/chat/73ad6dc8-269c-43ff-b9e9-d4d1786472fc"
-author:
-published:
-created: 2026-04-04
-description: "Claude conversation with 12 messages"
-tags:
-  - "clippings"
----
+# Music Information Retrieval Libraries for Real-Time Analysis
+
+[claude.ai](https://claude.ai/chat/73ad6dc8-269c-43ff-b9e9-d4d1786472fc) · Created 2026-04-04
+
+
 **You**
 
 i want to build a layer for an agentic application that serves as a music consultant: taking in played notes in its ingestion layer. Standard LLMs cannot "hear" pitch or rhythm errors accurately. Your engineer must use dedicated MIR (Music Information Retrieval) libraries for the diagnostic layer. What python libraries are the most popular for real-time rhythm and onset detection, and extracting musical features like timbre and harmonics as of 2026?

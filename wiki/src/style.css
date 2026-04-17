@@ -150,7 +150,39 @@ body {
   color: #cbd5e1;
 }
 
-/* Loader */
+/* Tables */
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.92rem;
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+  border: 1px solid var(--border-color);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.markdown-body th {
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.markdown-body tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.markdown-body tr:hover td {
+  background: rgba(56, 189, 248, 0.04);
+}
+
+
 .loader {
   font-size: 1.2rem;
   color: var(--text-muted);

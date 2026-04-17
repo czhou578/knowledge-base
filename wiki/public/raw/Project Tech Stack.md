@@ -1,4 +1,6 @@
-# AI Music Coaching Consultant - Tech Stack
+# AI Music Coaching Consultant — Tech Stack
+
+Internal · Created 2026-04-04
 
 This document visualizes the proposed technology stack for the AI Music Coaching Consultant system, designed as a lightweight, 2026-ready architecture requiring no DSP setup.
 

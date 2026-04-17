@@ -1,13 +1,8 @@
----
-title: "librosa/librosa: Python library for audio and music analysis"
-source: "https://github.com/librosa/librosa"
-author:
-published:
-created: 2026-04-02
-description: "Python library for audio and music analysis. Contribute to librosa/librosa development by creating an account on GitHub."
-tags:
-  - "clippings"
----
+# librosa/librosa: Python Library for Audio and Music Analysis
+
+[github.com/librosa/librosa](https://github.com/librosa/librosa) · Created 2026-04-02
+
+
 [![librosa logo](https://github.com/librosa/librosa/raw/main/docs/img/librosa_logo_text.svg)](https://librosa.org/)
 
 ## librosa

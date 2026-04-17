@@ -1,13 +1,8 @@
----
-title: "Bibliography — MIR Research References"
-created: 2026-04-04
-description: "Complete bibliography of all URLs referenced by Claude across the Music Information Retrieval conversation (73ad6dc8). 97 sources covering MIR libraries, violin-specific analysis, pitch estimation, beat tracking, and transfer learning."
-tags:
-  - "bibliography"
-  - "references"
----
-
 # Bibliography — MIR Research References
+
+Created 2026-04-04
+
+
 
 All URLs surfaced by Claude across the [Music Information Retrieval conversation](https://claude.ai/chat/73ad6dc8-269c-43ff-b9e9-d4d1786472fc), organized by topic. 97 sources total.
 

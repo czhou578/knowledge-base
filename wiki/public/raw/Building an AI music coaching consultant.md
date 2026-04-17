@@ -1,13 +1,8 @@
----
-title: "Building an AI music coaching consultant"
-source: "https://claude.ai/chat/dbd8569c-fdc9-4143-96f5-1c9158b24eb4"
-author:
-published:
-created: 2026-04-02
-description: "Claude conversation with 2 messages"
-tags:
-  - "clippings"
----
+# Building an AI Music Coaching Consultant
+
+[claude.ai](https://claude.ai/chat/dbd8569c-fdc9-4143-96f5-1c9158b24eb4) · Created 2026-04-02
+
+
 **You**
 
 I want a high-level, on-demand consultant. less “teacher,” more coach + second opinion + problem-solver. Right now: Teacher → Cobin→ Practice What you’re building: Teacher → Cobin ↔ Consultant Agent → Practice That middle layer is where reflection and refinement happen.

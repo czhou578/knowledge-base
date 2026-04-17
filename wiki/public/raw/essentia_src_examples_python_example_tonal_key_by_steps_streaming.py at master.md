@@ -1,19 +1,9 @@
----
-title: "essentia/src/examples/python/example_tonal_key_by_steps_streaming.py at master"
-source: "https://github.com/MTG/essentia/blob/master/src/examples/python/example_tonal_key_by_steps_streaming.py"
-author:
-published:
-created: 2026-04-02
-description: "C++ library for audio and music analysis, description and synthesis, including Python bindings - essentia/src/examples/python/example_tonal_key_by_steps_streaming.py at master · MTG/essentia"
-tags:
-  - "clippings"
----
+# essentia/src/examples/python/example_tonal_key_by_steps_streaming.py at master
 
-# example_tonal_key_by_steps_streaming.py
-
-Source: [MTG/essentia on GitHub](https://github.com/MTG/essentia/blob/master/src/examples/python/example_tonal_key_by_steps_streaming.py)
+[github.com/MTG/essentia](https://github.com/MTG/essentia/blob/master/src/examples/python/example_tonal_key_by_steps_streaming.py) · Created 2026-04-02
 
 A streaming-mode example from the Essentia library that demonstrates how to detect the tonal key of an audio file step-by-step using a chained signal processing pipeline.
+
 
 ```python
 import sys
