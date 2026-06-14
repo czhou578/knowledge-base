@@ -17,6 +17,6 @@
     "marked": "^12.0.0"
   },
   "devDependencies": {
-    "vite": "^6.4.2"
+    "vite": "^8.0.16"
   }
 }
